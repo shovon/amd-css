@@ -2,7 +2,12 @@
 
 rm -rf bin
 mkdir bin
-cp css.js bin
-cp -r demo bin
+cp -r css bin
+cp -r js bin
+cp -r css.js bin
+cp -r index.html bin
+cp -r text.txt bin
+
 cd bin
-r.js -o baseUrl=. paths.requireLib=demo/js/require name=demo/js/main include=requireLib out=demo/js/require.js
+
+r.js -o baseUrl=. paths.requireLib=js/require name=js/main include=requireLib out=js/require.js

@@ -12,6 +12,8 @@
   };
   define({
     write: function (pluginName, moduleName, write) {
+      console.log(moduleName);
+      console.log(process.cwd());
       var fs = require.nodeRequire('fs'),
           text = jsEscape(fs.readFileSync(moduleName, 'utf8'));
       write(
@@ -31,6 +33,7 @@
     },
     load: function (name, parentRequire, load, config) {
       if (config.isBuild) {
+        console.log(config);
         load();
       } else {
         var linkTag = document.createElement('link');
@@ -38,6 +41,7 @@
         linkTag.rel = 'stylesheet';
         linkTag.href = name;
         document.getElementsByTagName("head")[0].appendChild(linkTag);
+        load();
       }
     }
   });

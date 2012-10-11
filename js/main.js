@@ -1,0 +1,1 @@
+define(['css!css/style.css'], function () {});
