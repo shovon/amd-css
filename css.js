@@ -12,8 +12,6 @@
   };
   define({
     write: function (pluginName, moduleName, write) {
-      console.log(moduleName);
-      console.log(process.cwd());
       var fs = require.nodeRequire('fs'),
           text = jsEscape(fs.readFileSync(moduleName, 'utf8'));
       write(
@@ -26,14 +24,12 @@
           "} else {" +
             "styleTag.appendChild(document.createTextNode(css));" +
           "}" +
-          "console.log('Hello, World!');" +
           "document.getElementsByTagName('head')[0].appendChild(styleTag);" +
           "define('" + pluginName + "!" + moduleName + "', function () {});\n" +
         "})();");
     },
     load: function (name, parentRequire, load, config) {
       if (config.isBuild) {
-        console.log(config);
         load();
       } else {
         var linkTag = document.createElement('link');

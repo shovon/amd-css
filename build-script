@@ -6,7 +6,6 @@ cp -r css bin
 cp -r js bin
 cp -r css.js bin
 cp -r index.html bin
-cp -r text.txt bin
 
 cd bin
 
